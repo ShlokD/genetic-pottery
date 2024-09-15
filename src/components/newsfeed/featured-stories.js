@@ -1,5 +1,5 @@
+import { useEffect, useRef, useState } from "preact/hooks";
 import { useAppContext } from "../../context/app-context";
-import { useState, useRef, useEffect } from "preact/hooks";
 
 const FeaturedStoryCard = ({
   urlToImage,
@@ -15,8 +15,7 @@ const FeaturedStoryCard = ({
       href={url}
       target="_blank"
       rel="noreferrer noopener"
-      style={{ minHeight: "400px" }}
-    >
+      style={{ minHeight: "400px" }}>
       <div className="w-100 flex flex-column justify-center">
         <img
           className="w-100"
@@ -91,9 +90,8 @@ const FeaturedStoryCarousel = ({ stories }) => {
     <div
       className="dn flex-l overflow-x-scroll w-100 h-100 mv4 items-center justify-evenly no-wrap"
       style={{ minHeight: "720px" }}
-      id="carousel"
-    >
-      {stories.map((story, index) => {
+      id="carousel">
+      {stories?.map((story, index) => {
         const date = new Date(story.publishedAt);
         const isSelected = index === selected;
         return (
@@ -109,14 +107,12 @@ const FeaturedStoryCarousel = ({ stories }) => {
               minHeight: "600px",
               transform: `scale3d(${isSelected ? "1.1,1.1,1.1" : "1,1,1"})`,
               transition: "all 0.5s ease-in-out",
-            }}
-          >
+            }}>
             <a
               className="no-underline black"
               rel="noopener noreferrer"
               target="_blank"
-              href={story.url}
-            >
+              href={story.url}>
               <div className="pa4 absolute bottom-1 bg-black-90 flex flex-column w-80">
                 <h3 className="f5 ma0 mv4 white truncate">{story.title}</h3>
                 <p className="db light-gray mw6 f6 ma0 mv2 truncate">
@@ -131,15 +127,13 @@ const FeaturedStoryCarousel = ({ stories }) => {
                 <button
                   className="b--none f2 pa2 bg-transparent b white"
                   disabled={selected === 0}
-                  onClick={setPrevStory}
-                >
+                  onClick={setPrevStory}>
                   &larr;
                 </button>
                 <button
                   className="b--none f2 pa2 bg-transparent b white"
                   disabled={selected === stories.length}
-                  onClick={setNextStory}
-                >
+                  onClick={setNextStory}>
                   &rarr;
                 </button>
               </div>

@@ -12,15 +12,14 @@ function uuidv4() {
 const OtherStoriesList = ({ stories }) => {
   return (
     <>
-      {stories.map((story, index) => {
+      {stories?.map((story, index) => {
         return (
           <a
             className="bw1 pv2 bb b--dark-green no-underline black mb4"
             key={`other-story-${index}-${uuidv4()}`}
             href={story.url}
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             <div className="flex flex-column flex-row-l items-center w-100 pb2">
               <div className="w-100 w-30-l flex flex-column items-center justify-center">
                 <img

@@ -4,7 +4,7 @@ import NewsFeed from "../components/newsfeed";
 import { getServerUrl, transformArticle } from "../utils";
 
 export default function Home({ stories }) {
-  const imageUrls = stories.map((story) => story.urlToImage);
+  const imageUrls = stories?.map((story) => story.urlToImage);
 
   return (
     <>

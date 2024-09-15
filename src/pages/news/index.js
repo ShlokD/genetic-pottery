@@ -6,7 +6,7 @@ import { useEffect, useState } from "preact/hooks";
 
 export default function SearchCategory({ stories, pages }) {
   const [categoryStories, setCategoryStories] = useState(stories);
-  const imageUrls = stories.map((story) => story.urlToImage);
+  const imageUrls = stories?.map((story) => story.urlToImage);
 
   useEffect(() => {
     if (stories !== categoryStories) {
