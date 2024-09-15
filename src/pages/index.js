@@ -9,7 +9,7 @@ export default function Home({ stories }) {
   return (
     <>
       <Head>
-        {imageUrls.map((imageUrl, idx) =>
+        {imageUrls?.map((imageUrl, idx) =>
           imageUrl ? (
             <link
               key={`preload-${idx}`}

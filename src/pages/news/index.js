@@ -17,7 +17,7 @@ export default function SearchCategory({ stories, pages }) {
   return (
     <>
       <Head>
-        {imageUrls.map((imageUrl, idx) =>
+        {imageUrls?.map((imageUrl, idx) =>
           imageUrl ? (
             <link
               key={`preload-${idx}`}
