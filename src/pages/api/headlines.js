@@ -15,13 +15,10 @@ export default async function handler(req, res) {
     res.status(200).json(cache[cacheKey]);
   } else {
     const apiKey = process.env.API_KEY;
-    console.log("A");
     const apiResponse = await fetch(
       `https://newsapi.org/v2/top-headlines?country=us&pageSize=30&apiKey=${apiKey}`
     );
-    console.log("B");
     const headlines = await apiResponse.json();
-    console.log({ headlines });
     cache[cacheKey] = headlines;
     res.status(200).json(headlines);
   }
