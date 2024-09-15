@@ -24,7 +24,7 @@ export default function Home({ stories }) {
         )}
       </Head>
       <AppContext.Provider value={{ stories }}>
-        {stories.length > 0 ? (
+        {stories?.length > 0 ? (
           <NewsFeed />
         ) : (
           <div className="ma6 pa6">
@@ -41,7 +41,9 @@ export async function getServerSideProps(context) {
     const server = getServerUrl();
     const res = await fetch(`${server}/api/headlines`);
     const json = await res.json();
+    console.log(json);
     const stories = transformArticle(json?.articles);
+    console.log(stories);
     return {
       props: {
         stories,
