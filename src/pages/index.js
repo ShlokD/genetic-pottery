@@ -4,7 +4,6 @@ import NewsFeed from "../components/newsfeed";
 import { getServerUrl, transformArticle } from "../utils";
 
 export default function Home({ stories }) {
-  console.log({ stories: JSON.stringify(stories) });
   const imageUrls = stories?.map((story) => story.urlToImage);
 
   return (
@@ -41,9 +40,7 @@ export async function getServerSideProps(context) {
     const server = getServerUrl();
     const res = await fetch(`${server}/api/headlines`);
     const json = await res.json();
-    console.log(json);
     const stories = transformArticle(json?.articles);
-    console.log(stories);
     return {
       props: {
         stories,

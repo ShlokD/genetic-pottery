@@ -1,4 +1,8 @@
-const whitelisted = ["localhost:3000", "geneticpottery-1-b1461366.deta.app"];
+const whitelisted = [
+  "localhost:3000",
+  "geneticpottery-1-b1461366.deta.app",
+  "genetic-pottery.onrender.com/",
+];
 
 const cache = {};
 
